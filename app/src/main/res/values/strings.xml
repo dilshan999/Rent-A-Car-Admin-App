@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">Rent A Car</string>
+
+
+    <string name="compact">Compact</string>
+    <string name="car">car</string>
+    <string name="pick_the_date">Pick The Date</string>
+    <string name="number_of_days">Enter The Number Of Days</string>
+    <string name="continue_">Continue</string>
+    <string name="mini">Mini</string>
+    <string name="select">Select</string>
+    <string name="enter_your_contact_number">Enter Your Contact Number</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="automatic">Automatic</string>
+    <string name="seats">Seats</string>
+    <string name="model">Model</string>
+    <string name="category">Category</string>
+    <string name="price_for_a_day">Price For A Day</string>
+
+    <string name="card1">Name on card</string>
+    <string name="card01">Ex:-John</string>
+    <string name="card2">Card Number</string>
+    <string name="card02">XXXX XXXX XXXX XXXX</string>
+    <string name="card3">Card Expiry Date</string>
+    <string name="card4">Month</string>
+    <string name="card5">Year</string>
+    <string name="card6">CVC</string>
+    <string name="btn01">Cancel</string>
+    <string name="btn02">Pay</string>
+    <string name="msg01">Thank you for choosing our services!</string>
+    <string name="btn03">Home</string>
+
+
+    <string name="vehicle_size">Vehicle Size :</string>
+    <string name="price">Price :</string>
+    <string name="brand">Brand :</string>
+    <string name="passengers">Passengers :</string>
+    <string name="bags">Bags :</string>
+    <string name="transmission">Transmission :</string>
+    <string name="description">Description :</string>
+    <string name="fuel">Fuel :</string>
+
+    <string name="addPhoto_btn">Add a photo</string>
+    <string name="addVehicle_btn">Add</string>
+    <string name="changePhoto_btn">Change photo</string>
+    <string name="saveChanges_btn">Save Changes</string>
+
+    <string name="drawer_Home_btn">Home</string>
+    <string name="drawer_add_new_vehicle_btn">Add New Vehicle</string>
+    <string name="sign_out_btn">Sign out</string>
+
+
+    <string-array name="Vehicle_size">
+        <item>Select Vehicle Size</item>
+        <item>Mini</item>
+        <item>Economy</item>
+        <item>Compact</item>
+        <item>Minivan</item>
+    </string-array>
+
+    <string-array name="Passengers">
+        <item>Select number of passengers</item>
+        <item>4</item>
+        <item>5</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="Bags">
+        <item>Select number of Bags</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="Transmission">
+        <item>Select Transmission</item>
+        <item>Automatic</item>
+        <item>Manual</item>
+    </string-array>
+
+    <string-array name="Fuel">
+        <item>Select Fuel Policy</item>
+        <item>Full to Full</item>
+    </string-array>
+
+    <string-array name="Vehicles">
+        <item>Mini - Hyundai Eon </item>
+        <item>Compact - Toyota Axio</item>
+        <item>Minivan - Hyundai H1</item>
+    </string-array>
+
+    <string name="title_activity_admin_home">AdminHomeActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="Question">Question</string>
+    <string name="Answer">Answer</string>
+    <string name="add">add</string>
+    <string name="answer_1">Answer 1</string>
+    <string name="question_2">Question 2</string>
+    <string name="question_1">Question 1</string>
+    <string name="answer_2">Answer 2</string>
+    <string name="question_3">Question 3</string>
+    <string name="answer_3">Answer 3</string>
+    <string name="title_activity_edit_faq">EditFaqActivity</string>
+    <string name="edit">Edit</string>
+    <string name="delete2">Delete</string>
+    <string name="queastion_1">Question 1</string>
+    <string name="queastion_2">Question 2</string>
+    <string name="delete1">Delete</string>
+    <string name="editButton">Edit</string>
+    <string name="delete">Delete</string>
+
+
+
+</resources>

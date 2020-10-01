@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "770776524052",
+    "firebase_url": "https://rent-a-car-5f73f.firebaseio.com",
+    "project_id": "rent-a-car-5f73f",
+    "storage_bucket": "rent-a-car-5f73f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770776524052:android:76c909ffb9b77e22820e01",
+        "android_client_info": {
+          "package_name": "com.group11.rentacar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770776524052-cssqpv5d5pr078glne5353kqqkbr2jo1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.group11.rentacar",
+            "certificate_hash": "6504edf2c20795f26ba58dbaaa77e9e0730567cd"
+          }
+        },
+        {
+          "client_id": "770776524052-5vabjo41ou1riudv0ebvfo14up6mj9dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlYCv6UONgchpNxqWxs6S-VXJsmPSV5A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770776524052-5vabjo41ou1riudv0ebvfo14up6mj9dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770776524052:android:93175444218fadca820e01",
+        "android_client_info": {
+          "package_name": "com.group11.rentacaradmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770776524052-5vabjo41ou1riudv0ebvfo14up6mj9dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlYCv6UONgchpNxqWxs6S-VXJsmPSV5A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770776524052-5vabjo41ou1riudv0ebvfo14up6mj9dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
