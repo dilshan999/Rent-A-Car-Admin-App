@@ -167,6 +167,11 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
         startActivity(intent);
     }
 
+    public void ClickAddFaq(View view){
+        Intent intent = new Intent(AdminHomeActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
+
     public void ClickSignOut(View view){
         // Signout(this);
     }

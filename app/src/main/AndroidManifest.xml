@@ -26,6 +26,10 @@
             android:windowSoftInputMode="stateHidden"
             android:label="Add Vehicle"/>
         <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:label="Add FAQ"/>
+        <activity
             android:name=".AdminHomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
