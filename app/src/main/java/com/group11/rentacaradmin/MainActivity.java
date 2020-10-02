@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         std = new  Datain();
 
-        dbref = FirebaseDatabase.getInstance().getReference().child("Datain");
+        dbref = FirebaseDatabase.getInstance().getReference().child("FAQ");
 
 
 

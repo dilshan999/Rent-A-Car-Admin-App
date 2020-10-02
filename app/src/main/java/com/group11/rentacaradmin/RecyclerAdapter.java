@@ -79,7 +79,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             name = itemView.findViewById(R.id.vehicle_name);
             //price = itemView.findViewById(R.id.vehicle_name);
             // btnUpdate = itemView.findViewById(R.id.editBtn);
-            btnDelete = itemView.findViewById(R.id.deleteBtn);
+
         }
     }
 

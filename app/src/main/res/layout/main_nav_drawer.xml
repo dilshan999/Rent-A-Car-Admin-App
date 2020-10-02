@@ -92,7 +92,7 @@
             android:layout_marginStart="40dp"
             android:layout_weight="1"
             android:padding="12dp"
-            android:text="Add Faq"
+            android:text="Add FAQ"
             android:textStyle="bold"
             android:textColor="#fff"
             android:textSize="18sp" />
