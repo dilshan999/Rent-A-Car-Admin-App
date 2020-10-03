@@ -140,6 +140,8 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
         });
     }
 
+    //nav Drawer
+
     public void ClickMenu(View view){
         openDrawer(drawerLayout);
     }
