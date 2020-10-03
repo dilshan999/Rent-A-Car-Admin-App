@@ -41,7 +41,7 @@ public class EditActivity extends AppCompatActivity {
     ImageView imageChange;
     EditText editBrand, editPass, editPrice;
     Spinner trans;
-    Button update, choose;
+    Button update, choose, cancelBtn;
     String brand;
     int pass;
     Double price;
@@ -76,6 +76,7 @@ public class EditActivity extends AppCompatActivity {
         editPass = findViewById(R.id.passengersEdt);
         editPrice = findViewById(R.id.priceEdt);
         trans = findViewById(R.id.transmissionEdit);
+        cancelBtn = findViewById(R.id.cancelEdtBtn);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
@@ -111,6 +112,14 @@ public class EditActivity extends AppCompatActivity {
             public void onClick(View view) {
                 openFileChooser();
 
+            }
+        });
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EditActivity.this,AdminHomeActivity.class);
+                startActivity(intent);
             }
         });
 

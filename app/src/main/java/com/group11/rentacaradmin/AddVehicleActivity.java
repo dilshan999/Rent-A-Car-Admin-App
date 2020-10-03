@@ -47,7 +47,7 @@ import java.util.List;
 
 public class AddVehicleActivity extends AppCompatActivity {
 
-    private Button addImage,addVehicle;
+    private Button addImage,addVehicle,cancelBtn;
     private EditText passengers,price,brand;
     private Spinner transmission;
     private TextView mTextViewShowUploads;
@@ -75,6 +75,7 @@ public class AddVehicleActivity extends AppCompatActivity {
         transmission = findViewById(R.id.transmission);
         mProgressBar = findViewById(R.id.progress_bar);
         imageView = findViewById(R.id.image);
+        cancelBtn = findViewById(R.id.cancelAddBtn);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
@@ -122,6 +123,13 @@ public class AddVehicleActivity extends AppCompatActivity {
         });
 */
 
+      cancelBtn.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Intent intent = new Intent(AddVehicleActivity.this,AdminHomeActivity.class);
+              startActivity(intent);
+          }
+      });
 
 
     }
