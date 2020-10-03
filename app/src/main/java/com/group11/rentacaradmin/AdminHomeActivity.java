@@ -96,7 +96,7 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
 
 
     public void onItemClick(int position) {
-        Toast.makeText(AdminHomeActivity.this, "Normal click at position"+ position, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(AdminHomeActivity.this, "Normal click at position"+ position, Toast.LENGTH_SHORT).show();
 
         //   Upload up = new Upload();
         VehicleModel selectedItem = vehicles.get(position);
@@ -135,7 +135,7 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
             @Override
             public void onSuccess(Void aVoid) {
                 databaseRef.child(selectedkey).removeValue();
-                Toast.makeText(AdminHomeActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminHomeActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }

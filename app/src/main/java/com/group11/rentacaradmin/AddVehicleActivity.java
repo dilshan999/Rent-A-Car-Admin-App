@@ -22,6 +22,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -57,6 +60,7 @@ public class AddVehicleActivity extends AppCompatActivity {
     private StorageReference storageRef;
     private DatabaseReference databaseRef;
     private StorageTask uploadTask;
+    AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +76,22 @@ public class AddVehicleActivity extends AppCompatActivity {
         mProgressBar = findViewById(R.id.progress_bar);
         imageView = findViewById(R.id.image);
 
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
         storageRef = FirebaseStorage.getInstance().getReference("Vehicle");
         databaseRef = FirebaseDatabase.getInstance().getReference("Vehicle");
 
         //progressDialog = new ProgressDialog(this);
+
+        //Add Validation For Price
+        //awesomeValidation.addValidation(this,R.id.price, RegexTemplate.NOT_EMPTY,R.string.invalid_price);
+        awesomeValidation.addValidation(this,R.id.price, "[0-9]{4}$",R.string.invalid_price);
+
+        //Add Validation For Brand
+        awesomeValidation.addValidation(this,R.id.brand, RegexTemplate.NOT_EMPTY,R.string.invalid_brand);
+
+        //Add Validation For Passengers
+        awesomeValidation.addValidation(this,R.id.passengers, RegexTemplate.NOT_EMPTY,R.string.invalid_passengers);
 
 
         addImage.setOnClickListener(new View.OnClickListener() {
@@ -87,10 +103,13 @@ public class AddVehicleActivity extends AppCompatActivity {
         addVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (uploadTask != null && uploadTask.isInProgress()) {
-                    Toast.makeText(AddVehicleActivity.this, "Uploading..", Toast.LENGTH_SHORT).show();
-                } else {
-                    Vehicleupload();
+                if (awesomeValidation.validate()) {
+                    if (uploadTask != null && uploadTask.isInProgress()) {
+                        Toast.makeText(AddVehicleActivity.this, "Uploading..", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Vehicleupload();
+                    }
                 }
             }
         });
@@ -133,7 +152,7 @@ public class AddVehicleActivity extends AppCompatActivity {
         pd.setMessage("uploading");
         pd.show();
 
-        if (imageUri != null) {
+        if (imageUri != null && awesomeValidation.validate()) {
 
             StorageReference fileReference = storageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(imageUri));
@@ -150,7 +169,7 @@ public class AddVehicleActivity extends AppCompatActivity {
                             }, 300);
 
                             pd.dismiss();
-                            Toast.makeText(AddVehicleActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(AddVehicleActivity.this, "Vehicle Added Successfully", Toast.LENGTH_LONG).show();
                             VehicleModel vehicleModel = new VehicleModel(taskSnapshot.getDownloadUrl().toString(),Double.parseDouble(price.getText().toString().trim()),brand.getText().toString().trim(),
                                     Integer.parseInt(passengers.getText().toString().trim()), (String) transmission.getSelectedItem());
 

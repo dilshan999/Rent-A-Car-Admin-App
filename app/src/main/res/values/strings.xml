@@ -117,7 +117,9 @@
     <string name="delete1">Delete</string>
     <string name="editButton">Edit</string>
     <string name="delete">Delete</string>
-
+    <string name="invalid_price">Please Enter Valid Price</string>
+    <string name="invalid_brand">Please Enter Valid Brand Name</string>
+    <string name="invalid_passengers">Please Enter Valid Number</string>
 
 
 </resources>

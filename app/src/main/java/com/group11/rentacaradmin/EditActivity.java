@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,6 +59,8 @@ public class EditActivity extends AppCompatActivity {
 
     private StorageTask UpdateTask;
 
+    AwesomeValidation awesomeValidation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,8 +77,19 @@ public class EditActivity extends AppCompatActivity {
         editPrice = findViewById(R.id.priceEdt);
         trans = findViewById(R.id.transmissionEdit);
 
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
 
         vm = new VehicleModel();
+
+        //Add Validation For Price
+        awesomeValidation.addValidation(this,R.id.priceEdt, "[0-9]{4}$",R.string.invalid_price);
+
+        //Add Validation For Brand
+        awesomeValidation.addValidation(this,R.id.brandEdt, RegexTemplate.NOT_EMPTY,R.string.invalid_brand);
+
+        //Add Validation For Passengers
+        awesomeValidation.addValidation(this,R.id.passengersEdt, RegexTemplate.NOT_EMPTY,R.string.invalid_passengers);
 
         getData();
         setData();
@@ -82,9 +98,11 @@ public class EditActivity extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (awesomeValidation.validate()) {
 
-                uploadFile();
+                    uploadFile();
 
+                }
             }
         });
 
@@ -157,7 +175,7 @@ public class EditActivity extends AppCompatActivity {
                                     vm.setPassengers(Integer.parseInt(editPass.getText().toString().trim()));
                                     vm.setTransmission((String) trans.getSelectedItem());
 
-                                    Ref=FirebaseDatabase.getInstance().getReference().child("Vehicles").child(id);
+                                    Ref=FirebaseDatabase.getInstance().getReference().child("Vehicle").child(id);
                                     Ref.setValue(vm);
 
                                     Toast.makeText(EditActivity.this, "Updated successfully", Toast.LENGTH_SHORT).show();
@@ -187,7 +205,7 @@ public class EditActivity extends AppCompatActivity {
                     vm.setPassengers(Integer.parseInt(editPass.getText().toString().trim()));
                     vm.setTransmission((String) trans.getSelectedItem());
 
-                    Ref=FirebaseDatabase.getInstance().getReference().child("Vehicles").child(id);
+                    Ref=FirebaseDatabase.getInstance().getReference().child("Vehicle").child(id);
                     Ref.setValue(vm);
 
                     Toast.makeText(EditActivity.this, "Updated successfully", Toast.LENGTH_SHORT).show();
