@@ -120,6 +120,7 @@
     <string name="invalid_price">Please Enter Valid Price</string>
     <string name="invalid_brand">Please Enter Valid Brand Name</string>
     <string name="invalid_passengers">Please Enter Valid Number</string>
+    <string name="drawer_booking">Bookings</string>
 
 
 </resources>

@@ -32,17 +32,17 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
+public class DisplayBookings extends AppCompatActivity implements ImageAdapter2.OnItemClickListener {
 
     private RecyclerView recyclerView;
-    private ImageAdapter adapter;
+    private ImageAdapter2 adapter;
     private ProgressBar progress;
     private Button edit;
 
     private FirebaseStorage storage;
     private DatabaseReference databaseRef;
     private ValueEventListener DBListener;
-    private List<VehicleModel> vehicles;
+    private List<Booking> bookings;
     private Context mContext;
     public ImageView newImage;
     DrawerLayout drawerLayout;
@@ -50,7 +50,7 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_home);
+        setContentView(R.layout.activity_display_bookings);
 
         newImage = findViewById(R.id.imageEdt);
         //edit = findViewById(R.id.editBtn);
@@ -58,26 +58,26 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //progress = findViewById(R.id.progresscycle);
-        vehicles = new ArrayList<>();
+        bookings = new ArrayList<>();
 
-        adapter = new ImageAdapter(AdminHomeActivity.this, vehicles);
+        adapter = new ImageAdapter2(DisplayBookings.this, bookings);
         recyclerView.setAdapter(adapter);
-        adapter.setOnItemClickListener(AdminHomeActivity.this);
+        //adapter.setOnItemClickListener(DisplayBookings.this);
 
 
         storage=FirebaseStorage.getInstance();
-        databaseRef = FirebaseDatabase.getInstance().getReference("Vehicle");
+        databaseRef = FirebaseDatabase.getInstance().getReference("Booking");
 
         drawerLayout = findViewById(R.id.drawer_layout1);
 
         DBListener =databaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                vehicles.clear();
+                bookings.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    VehicleModel vehicleModel = postSnapshot.getValue(VehicleModel.class);
-                    vehicleModel.setVehicleID(postSnapshot.getKey());
-                    vehicles.add(vehicleModel);
+                    Booking bookingModel = postSnapshot.getValue(Booking.class);
+                    bookingModel.setModel(postSnapshot.getKey());
+                    bookings.add(bookingModel);
                 }
 
                 adapter.notifyDataSetChanged();
@@ -86,7 +86,7 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(AdminHomeActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DisplayBookings.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 progress.setVisibility(View.INVISIBLE);
             }
         });
@@ -96,26 +96,7 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
 
 
     public void onItemClick(int position) {
-      //  Toast.makeText(AdminHomeActivity.this, "Normal click at position"+ position, Toast.LENGTH_SHORT).show();
 
-        //   Upload up = new Upload();
-        VehicleModel selectedItem = vehicles.get(position);
-
-        Intent in = new Intent(AdminHomeActivity.this,EditActivity.class);
-        in.putExtra("photo",selectedItem.getImageUrl());
-        in.putExtra("price",selectedItem.getPrice());
-        in.putExtra("brand",selectedItem.getBrand());
-        in.putExtra("id",selectedItem.getVehicleID());
-        in.putExtra("passengers",selectedItem.getPassengers());
-        in.putExtra("transmission",selectedItem.getTransmission());
-
-        startActivity(in);
-
-
-
-
-        System.out.println(selectedItem.getImageUrl());
-        System.out.println(selectedItem.getVehicleID());
     }
 
 /*    @Override
@@ -125,17 +106,18 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
 
     } */
 
+
     @Override
     public void onDeleteClick(int position) {
-        VehicleModel selectedItem = vehicles.get(position);
-        final String selectedkey = selectedItem.getVehicleID();
+        Booking selectedItem = bookings.get(position);
+        final String selectedkey = selectedItem.getCusPhone();
 
-        StorageReference imageref = storage.getReferenceFromUrl(selectedItem.getImageUrl());
+        StorageReference imageref = storage.getReferenceFromUrl(selectedItem.getCusPhone());
         imageref.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 databaseRef.child(selectedkey).removeValue();
-                Toast.makeText(AdminHomeActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DisplayBookings.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -165,16 +147,12 @@ public class AdminHomeActivity extends AppCompatActivity implements ImageAdapter
     }
 
     public void ClickAdd(View view){
-        Intent intent = new Intent(AdminHomeActivity.this,AddVehicleActivity.class);
+        Intent intent = new Intent(DisplayBookings.this,AddVehicleActivity.class);
         startActivity(intent);
     }
 
     public void ClickAddFaq(View view){
-        Intent intent = new Intent(AdminHomeActivity.this,MainActivity.class);
-        startActivity(intent);
-    }
-    public void ClickBookings(View view){
-        Intent intent = new Intent(AdminHomeActivity.this,DisplayBookings.class);
+        Intent intent = new Intent(DisplayBookings.this,MainActivity.class);
         startActivity(intent);
     }
 
