@@ -110,6 +110,7 @@ public class AddVehicleActivity extends AppCompatActivity {
                     }
                     else {
                         Vehicleupload();
+
                     }
                 }
             }
@@ -183,6 +184,8 @@ public class AddVehicleActivity extends AppCompatActivity {
 
                             String uploadId = databaseRef.push().getKey();
                             databaseRef.child(uploadId).setValue(vehicleModel);
+
+
                         }
                     })
 
@@ -202,6 +205,7 @@ public class AddVehicleActivity extends AppCompatActivity {
                             mProgressBar.setProgress((int) progress);
                         }
                     });
+
         } else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }

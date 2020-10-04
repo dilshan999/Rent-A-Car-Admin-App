@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
-        android:text="RENT A CAR"
+        android:text="RENT A CAR ADMIN"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textSize="24sp"

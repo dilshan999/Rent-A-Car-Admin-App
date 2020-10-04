@@ -11,26 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayBookings">
-        </activity>
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".EditActivity"
-            android:label="Edit"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:label="Edit"/>
         <activity
             android:name=".AddVehicleActivity"
-            android:label="Add Vehicle"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:label="Add Vehicle"/>
         <activity
             android:name=".MainActivity"
-            android:label="Add FAQ"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"
+            android:label="Add FAQ"/>
         <activity
             android:name=".AdminHomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
