@@ -15,6 +15,9 @@
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
+            android:name=".DisplayBookings"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
